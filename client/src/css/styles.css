@@ -16,9 +16,8 @@ body {
 
 .main-wrap .boxes-wrap {
   display: flex;
-  justify-content: center; }
+  justify-content: space-evenly; }
   .main-wrap .boxes-wrap .left-box {
-    width: 50%;
     margin: 20px; }
     .main-wrap .boxes-wrap .left-box h2 {
       font-size: 18px;
@@ -36,7 +35,6 @@ body {
         outline: none;
         cursor: pointer; }
   .main-wrap .boxes-wrap .right-box {
-    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
