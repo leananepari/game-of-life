@@ -34,8 +34,21 @@ body{
         margin-bottom: 15px;
       }
 
-      .grid {
+      .grid-wrap {
+        display: flex;
 
+        .grid {
+
+        }
+
+        .presets {
+
+          button {
+            margin: 0 0 5px 10px;
+            cursor: pointer;
+            outline: none;
+          }
+        }
       }
 
       .buttons {

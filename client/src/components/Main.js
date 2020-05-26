@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Row from './Row';
+import Preset from './Preset';
 
 const Main = () => {
   const [grid, setGrid] = useState([]);
+  const [selectedPreset, setSelectedPreset] = useState('');
+  const presets = [{name: 'Preset 1'}, {name: 'Preset 2'},
+                   {name: 'Preset 3'}]
 
   useEffect(() => {
     // build the grid 25x25
@@ -18,11 +22,23 @@ const Main = () => {
         arr[i][j] = {alive: false}
       }
     }
-    
+
     arr[3][5]['alive'] = true
     setGrid(arr)
 
   }, [])
+
+  const startSimulation = () => {
+    
+  }
+
+  const pauseSimulation = () => {
+
+  }
+
+  const stopSimulation = () => {
+
+  }
 
   return (
     <div className="main-wrap">
@@ -33,17 +49,24 @@ const Main = () => {
 
         <div className="left-box">
           <h2>Generation: #</h2>
-          <div className="grid">
-            <div style={{}}>
-              {grid.map((row, i)=> {
-                return <Row row={row} key={i}/>
+          <div className="grid-wrap">
+            <div className="grid">
+              <div style={{}}>
+                {grid.map((row, i)=> {
+                  return <Row row={row} key={i}/>
+                })}
+              </div>
+            </div>
+            <div className="presets">
+              {presets.map((preset, i) => {
+                return <Preset preset={preset} key={i} setSelectedPreset={setSelectedPreset} selectedPreset={selectedPreset}/>
               })}
             </div>
           </div>
           <div className="buttons">
-            <button>Play</button>
-            <button>Pause</button>
-            <button>Stop</button>
+            <button onClick={startSimulation}>Play</button>
+            <button onClick={pauseSimulation}>Pause</button>
+            <button onClick={stopSimulation}>Stop</button>
           </div>
         </div>
 

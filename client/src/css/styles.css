@@ -22,6 +22,12 @@ body {
     .main-wrap .boxes-wrap .left-box h2 {
       font-size: 18px;
       margin-bottom: 15px; }
+    .main-wrap .boxes-wrap .left-box .grid-wrap {
+      display: flex; }
+      .main-wrap .boxes-wrap .left-box .grid-wrap .presets button {
+        margin: 0 0 5px 10px;
+        cursor: pointer;
+        outline: none; }
     .main-wrap .boxes-wrap .left-box .buttons {
       margin: 20px 0 0 0; }
       .main-wrap .boxes-wrap .left-box .buttons button {
