@@ -1,11 +1,12 @@
 import React from 'react';
 
-const Preset = ( { preset, setSelectedPreset, selectedPreset }) => {
+const Preset = ( { preset, setSelectedPreset, selectedPreset, setGrid }) => {
 
   const setSelected = () => {
-    setSelectedPreset(preset.name)
+    setSelectedPreset(preset.name);
+    preset.func(setGrid);
   }
-  
+
   return (
     <div>
       <button onClick={setSelected} 
