@@ -24,10 +24,9 @@ body{
 
   .boxes-wrap {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
 
     .left-box {
-      width: 50%;
       margin: 20px;
 
       h2 {
@@ -35,8 +34,21 @@ body{
         margin-bottom: 15px;
       }
 
-      .grid {
+      .grid-wrap {
+        display: flex;
 
+        .grid {
+
+        }
+
+        .presets {
+
+          button {
+            margin: 0 0 5px 10px;
+            cursor: pointer;
+            outline: none;
+          }
+        }
       }
 
       .buttons {
@@ -57,7 +69,6 @@ body{
     }
 
     .right-box {
-      width: 50%;
       display: flex;
       flex-direction: column;;
       align-items: center;
