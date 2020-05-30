@@ -10,7 +10,7 @@ const Preset = ( { preset, setSelectedPreset, selectedPreset, setGrid }) => {
   return (
     <div>
       <button onClick={setSelected} 
-              style={{backgroundColor: `${selectedPreset === preset.name ? 'gray' : 'white'}`}}>
+              style={{backgroundColor: `${selectedPreset === preset.name ? '#e9deea' : 'white'}`}}>
         {preset.name}
       </button>
     </div>

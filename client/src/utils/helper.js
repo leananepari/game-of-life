@@ -62,8 +62,30 @@ export const preset2 = (setGrid) => {
 
 }
 
-export const preset3 = (grid) => {
+export const preset3 = (setGrid) => {
 
+}
+
+export const randomPreset = (setGrid) => {
+
+    setGrid(grid => {
+
+      return produce(grid, gridCopy => {
+
+        for (let i = 0; i < grid.length; i++) {
+          let k = Math.floor((Math.random() * (grid.length - 1)) + 1);
+          let j = Math.floor((Math.random() * (grid[0].length - 1)) + 1);
+          gridCopy[k][j].alive = true;
+
+          for (let l = 0; l < grid[i].length; l++) {
+            let k = Math.floor((Math.random() * (grid.length - 1)) + 1);
+            let j = Math.floor((Math.random() * (grid[0].length - 1)) + 1);
+            gridCopy[k][j].alive = true;
+          }
+        }
+
+      })
+    })
 }
 
 
@@ -72,7 +94,7 @@ const clearGrid = (setGrid) => {
   let arr = new Array(25);
       
   for(let i = 0; i < arr.length; i++) {
-    arr[i] = new Array(25)
+    arr[i] = new Array(55)
   }
 
   for (let i = 0; i < arr.length; i++) {
@@ -85,7 +107,7 @@ const clearGrid = (setGrid) => {
 }
 
 export const countNeighbors = (grid, buffer, coordinates, i, j, state) => {
-
+console.log('NEIGHBORS')
     let count_neighbors = 0;
 
     // check the top cell
@@ -180,10 +202,12 @@ export const countNeighbors = (grid, buffer, coordinates, i, j, state) => {
     if (state === true) {
       if (count_neighbors < 2 || count_neighbors > 3) {
         buffer[i][j].alive = false;
+
       } 
     } else if (state === false) {
       if (count_neighbors === 3) {
         buffer[i][j].alive = true;
+
       } 
     }
   }
@@ -195,10 +219,10 @@ export const wrapCellsAround = (grid, coordinates) => {
     let index = 0;
 
     //add corner cells
-    coordinates['-1,-1'] = grid[grid.length - 1][grid.length - 1];
-    coordinates[`-1,${grid.length}`] = grid[grid.length - 1][0];
+    coordinates['-1,-1'] = grid[grid.length - 1][grid[0].length - 1];
+    coordinates[`-1,${grid[0].length}`] = grid[grid.length - 1][0];
 
-    while(index < grid.length) {
+    while(index < grid[0].length) {
       coordinates[`-1,${index}`] = grid[grid.length - 1][index];
       index ++;
     }
@@ -209,9 +233,9 @@ export const wrapCellsAround = (grid, coordinates) => {
 
     //add corner cells
     coordinates[`${grid.length},-1`] = grid[0][grid.length-1];
-    coordinates[`${grid.length},${grid.length}`] = grid[0][0];
+    coordinates[`${grid.length},${grid[0].length}`] = grid[0][0];
 
-    while(index < grid.length) {
+    while(index < grid[0].length) {
       coordinates[`${grid.length},${index}`] = grid[0][index];
       index ++;
     }
@@ -222,7 +246,7 @@ export const wrapCellsAround = (grid, coordinates) => {
     let index = 0;
 
     while(index < grid.length) {
-      coordinates[`${index},-1`] = grid[index][grid.length - 1];
+      coordinates[`${index},-1`] = grid[index][grid[0].length - 1];
       index ++;
     }
 
@@ -232,7 +256,7 @@ export const wrapCellsAround = (grid, coordinates) => {
     let index = 0;
 
     while(index < grid.length) {
-      coordinates[`${index},${grid.length}`] = grid[index][0];
+      coordinates[`${index},${grid[0].length}`] = grid[index][0];
       index ++;
     }
   }
