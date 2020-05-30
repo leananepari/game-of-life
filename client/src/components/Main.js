@@ -21,12 +21,9 @@ const Main = () => {
   simulateRef.current = simulate;
 
   const [generation, setGeneration] = useState(0);
-  const generationRef = useRef(generation);
-  generationRef.current = generation;
 
 
   useEffect(() => {
-    console.log('use effect main')
 
     if (!simulateRef.current) {
       let arr = new Array(25);
@@ -84,7 +81,6 @@ const Main = () => {
       startSimulation()
     }, 0)
 
-
   }, [])
 
 
@@ -106,7 +102,7 @@ const Main = () => {
       <header>
         <h1>Game of Life</h1>
         <div style={{display: 'flex', alignItems: 'center'}}>
-          <div>rules:</div>
+          <div style={{fontSize: '16px'}}>rules:</div>
           <img style={{width: '65px', height: '65px'}} src={img}/>
           <div className="rules">
             <div>1. Any live cell with fewer than two live neighbours dies, as if by underpopulation.</div>
@@ -117,7 +113,7 @@ const Main = () => {
         </div>
       </header>
 
-      <h2>_generation: # {generationRef.current}</h2>
+      <h2>_generation: # {generation}</h2>
 
       <Grid grid={grid} setGrid={setGrid} />
 
@@ -139,6 +135,7 @@ const Main = () => {
                             setSelectedPreset={setSelectedPreset} 
                             selectedPreset={selectedPreset}
                             setGrid={setGrid}
+                            setGeneration={setGeneration}
                             />
           })}
         </div>
