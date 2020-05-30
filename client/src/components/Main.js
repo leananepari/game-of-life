@@ -1,27 +1,38 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import Preset from './Preset';
 import Grid from './Grid';
 import produce from 'immer';
-import { preset1, preset2, preset3, countNeighbors, wrapCellsAround } from './helper';
+import { preset1, preset2, preset3, randomPreset, countNeighbors, wrapCellsAround } from '../utils/helper';
+import img from '../assets/bracket.png';
+
 
 const Main = () => {
   const [grid, setGrid] = useState([]);
+
   const [selectedPreset, setSelectedPreset] = useState('');
   const presets = [{name: 'Preset 1', func: preset1}, 
                    {name: 'Preset 2', func: preset2},
-                   {name: 'Preset 3', func: preset3}]
+                   {name: 'Preset 3', func: preset3},
+                   {name: 'Randomize', func: randomPreset}]
   const [reload, setReload] = useState(false);
+
   const [simulate, setSimulate] = useState(false);
   const simulateRef = useRef(simulate);
   simulateRef.current = simulate;
 
+  const [generation, setGeneration] = useState(0);
+  const generationRef = useRef(generation);
+  generationRef.current = generation;
+
+
   useEffect(() => {
+    console.log('use effect main')
 
     if (!simulateRef.current) {
       let arr = new Array(25);
       
       for(let i = 0; i < arr.length; i++) {
-        arr[i] = new Array(25)
+        arr[i] = new Array(55)
       }
 
       for (let i = 0; i < arr.length; i++) {
@@ -36,11 +47,13 @@ const Main = () => {
   }, [reload])
 
 
-  const startSimulation = () => {
+  const startSimulation = useCallback(() => {
 
     if (!simulateRef.current) {
       return 
     }
+
+    setGeneration((num) => num + 1)
 
     setGrid(grid => {
       return produce(grid, gridCopy => {
@@ -48,7 +61,7 @@ const Main = () => {
         // make cells wrap around the grid
         const coordinates = {};
         wrapCellsAround(grid, coordinates);
-        
+
 
         for (let i = 0; i < grid.length; i++) {
 
@@ -67,9 +80,12 @@ const Main = () => {
 
     });
 
-    setTimeout(startSimulation, 1000)
+    setTimeout(() => {
+      startSimulation()
+    }, 0)
 
-  }
+
+  }, [])
 
 
   const pauseSimulation = () => {
@@ -80,51 +96,51 @@ const Main = () => {
     setSimulate(false);
     setReload(!reload);
     setSelectedPreset('');
+    setGeneration(0);
   }
 
 
   return (
     <div className="main-wrap">
 
-      <h1>Conway's Game of Life</h1>
-
-      <div className="boxes-wrap">
-
-        <div className="left-box">
-          <h2>Generation: #</h2>
-          <div className="grid-wrap">
-
-            <Grid grid={grid} setGrid={setGrid}/>
-            <div className="presets">
-              {presets.map((preset, i) => {
-
-                return <Preset preset={preset} key={i} 
-                               setSelectedPreset={setSelectedPreset} 
-                               selectedPreset={selectedPreset}
-                               setGrid={setGrid}
-                               />
-              })}
-            </div>
-          </div>
-          <div className="buttons">
-            <button onClick={() => {
-                      setSimulate(!simulate);
-                      simulateRef.current = true;
-                      startSimulation();
-                      }}>Play
-            </button>
-            <button onClick={pauseSimulation}>Pause</button>
-            <button onClick={clearSimulation}>Clear</button>
+      <header>
+        <h1>Game of Life</h1>
+        <div style={{display: 'flex', alignItems: 'center'}}>
+          <div>rules:</div>
+          <img style={{width: '65px', height: '65px'}} src={img}/>
+          <div className="rules">
+            <div>1. Any live cell with fewer than two live neighbours dies, as if by underpopulation.</div>
+            <div>2. Any live cell with two or three live neighbours lives on to the next generation.</div>
+            <div>3. Any live cell with more than three live neighbours dies, as if by overpopulation.</div>
+            <div>4. Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.</div>
           </div>
         </div>
+      </header>
 
-        <div className="right-box">
-          <h2>Rules:</h2>
-          <ul>
-            <li>item</li>
-            <li>item</li>
-            <li>item</li>
-          </ul>
+      <h2>_generation: # {generationRef.current}</h2>
+
+      <Grid grid={grid} setGrid={setGrid} />
+
+      <div className="buttons">
+        <div className="btn-wrap">
+          <button onClick={() => {
+                    setSimulate(!simulate);
+                    simulateRef.current = true;
+                    startSimulation();
+                    }}
+                  disabled={simulate ? true : false}>Play</button>
+          <button onClick={pauseSimulation}>Pause</button>
+          <button onClick={clearSimulation}>Clear</button>
+        </div>
+        <div className="presets">
+          {presets.map((preset, i) => {
+
+            return <Preset preset={preset} key={i} 
+                            setSelectedPreset={setSelectedPreset} 
+                            selectedPreset={selectedPreset}
+                            setGrid={setGrid}
+                            />
+          })}
         </div>
 
       </div>
