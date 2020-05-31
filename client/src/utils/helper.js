@@ -8,9 +8,36 @@ export const preset1 = (setGrid) => {
 
       return produce(grid, gridCopy => {
 
-        gridCopy[3][5]['alive'] = true
-        gridCopy[3][6]['alive'] = true
-        gridCopy[3][7]['alive'] = true
+        gridCopy[8][6]['alive'] = true
+        gridCopy[9][7]['alive'] = true
+        gridCopy[10][5]['alive'] = true
+        gridCopy[10][6]['alive'] = true
+        gridCopy[10][7]['alive'] = true
+
+        gridCopy[12][16]['alive'] = true
+        gridCopy[13][17]['alive'] = true
+        gridCopy[14][15]['alive'] = true
+        gridCopy[14][16]['alive'] = true
+        gridCopy[14][17]['alive'] = true
+
+        gridCopy[16][26]['alive'] = true
+        gridCopy[17][27]['alive'] = true
+        gridCopy[18][25]['alive'] = true
+        gridCopy[18][26]['alive'] = true
+        gridCopy[18][27]['alive'] = true
+
+        gridCopy[7][31]['alive'] = true
+        gridCopy[6][29]['alive'] = true
+        gridCopy[7][27]['alive'] = true
+        gridCopy[8][26]['alive'] = true
+        gridCopy[9][26]['alive'] = true
+        gridCopy[10][26]['alive'] = true
+        gridCopy[10][27]['alive'] = true
+        gridCopy[10][28]['alive'] = true
+        gridCopy[10][29]['alive'] = true
+        gridCopy[10][30]['alive'] = true
+        gridCopy[9][31]['alive'] = true
+
       })
     })
 
@@ -26,36 +53,36 @@ export const preset2 = (setGrid) => {
 
       gridCopy[3][5]['alive'] = true
       gridCopy[3][6]['alive'] = true
-      gridCopy[4][6]['alive'] = true
-      gridCopy[4][5]['alive'] = true
+      gridCopy[3][7]['alive'] = true
     
-      gridCopy[2][7]['alive'] = true
-      gridCopy[3][8]['alive'] = true
-      gridCopy[3][9]['alive'] = true
+      gridCopy[8][15]['alive'] = true
+      gridCopy[8][16]['alive'] = true
+      gridCopy[8][17]['alive'] = true
     
-      gridCopy[4][8]['alive'] = true
-      gridCopy[4][9]['alive'] = true
-      gridCopy[5][8]['alive'] = true
-      gridCopy[5][9]['alive'] = true
-    
-      gridCopy[5][6]['alive'] = true
-      gridCopy[6][5]['alive'] = true
-      gridCopy[6][6]['alive'] = true
-    
-      gridCopy[7][5]['alive'] = true
-      gridCopy[7][6]['alive'] = true
-      gridCopy[7][4]['alive'] = true
-    
-      gridCopy[8][6]['alive'] = true
-      gridCopy[9][6]['alive'] = true
-      gridCopy[9][7]['alive'] = true
-      gridCopy[10][7]['alive'] = true
-      gridCopy[10][8]['alive'] = true
-      gridCopy[10][9]['alive'] = true
-      gridCopy[9][9]['alive'] = true
-    
-      gridCopy[9][10]['alive'] = true
-      gridCopy[8][8]['alive'] = true
+      gridCopy[13][25]['alive'] = true
+      gridCopy[13][26]['alive'] = true
+      gridCopy[13][27]['alive'] = true
+
+      gridCopy[Math.floor(grid.length / 2)][Math.floor(grid[0].length / 2)]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2)][Math.floor(grid[0].length / 2) + 1]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) + 1][Math.floor(grid[0].length / 2)]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) + 1][Math.floor(grid[0].length / 2) + 1]['alive'] = true
+
+      gridCopy[Math.floor(grid.length / 2) + 2][Math.floor(grid[0].length / 2) + 2]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) + 2][Math.floor(grid[0].length / 2) + 3]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) + 3][Math.floor(grid[0].length / 2) + 2]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) + 3][Math.floor(grid[0].length / 2) + 3]['alive'] = true
+
+
+      gridCopy[Math.floor(grid.length / 2) - 10][Math.floor(grid[0].length / 2)]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 10][Math.floor(grid[0].length / 2) + 1]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 9][Math.floor(grid[0].length / 2)]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 9][Math.floor(grid[0].length / 2) + 1]['alive'] = true
+
+      gridCopy[Math.floor(grid.length / 2) - 8][Math.floor(grid[0].length / 2) + 2]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 8][Math.floor(grid[0].length / 2) + 3]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 7][Math.floor(grid[0].length / 2) + 2]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 7][Math.floor(grid[0].length / 2) + 3]['alive'] = true
 
     })
   })
@@ -63,7 +90,59 @@ export const preset2 = (setGrid) => {
 }
 
 export const preset3 = (setGrid) => {
+  clearGrid(setGrid);
 
+  setGrid(grid => {
+
+    return produce(grid, gridCopy => {
+
+      gridCopy[Math.floor(grid.length / 2)][5]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2)][6]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) + 1][5]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) + 1][6]['alive'] = true
+
+      gridCopy[Math.floor(grid.length / 2)][6 + 9]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) + 1][6 + 9]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) + 2][6 + 9]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) + 3][6 + 9 + 1]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) + 4][6 + 9 + 2]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) + 4][6 + 9 + 3]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) + 3][6 + 9 + 5]['alive'] = true
+      
+      gridCopy[Math.floor(grid.length / 2) + 2][6 + 9 + 6]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) + 1][6 + 9 + 6]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2)][6 + 9 + 6]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) + 1][6 + 9 + 4]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) + 1][6 + 9 + 7]['alive'] = true
+
+      gridCopy[Math.floor(grid.length / 2) - 1][6 + 10]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 2][6 + 11]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 2][6 + 12]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 1][6 + 14]['alive'] = true
+
+      gridCopy[Math.floor(grid.length / 2) - 2][6 + 19]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 2][6 + 20]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 2 + 1][6 + 19]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 2 + 1][6 + 20]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 2 + 2][6 + 19]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 2 + 2][6 + 20]['alive'] = true
+
+      gridCopy[Math.floor(grid.length / 2) - 3][6 + 21]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 2 + 3][6 + 21]['alive'] = true
+
+      gridCopy[Math.floor(grid.length / 2) - 3][6 + 23]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 4][6 + 23]['alive'] = true
+
+      gridCopy[Math.floor(grid.length / 2) - 2 + 3][6 + 23]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 2 + 4][6 + 23]['alive'] = true
+
+      gridCopy[Math.floor(grid.length / 2) - 2][6 + 33]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 2][6 + 34]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 2 + 1][6 + 33]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 2 + 1][6 + 34]['alive'] = true
+
+    })
+  })
 }
 
 export const randomPreset = (setGrid) => {
@@ -73,13 +152,13 @@ export const randomPreset = (setGrid) => {
       return produce(grid, gridCopy => {
 
         for (let i = 0; i < grid.length; i++) {
-          let k = Math.floor((Math.random() * (grid.length - 1)) + 1);
-          let j = Math.floor((Math.random() * (grid[0].length - 1)) + 1);
+          let k = Math.floor((Math.random() * (grid.length - 1)) + 0);
+          let j = Math.floor((Math.random() * (grid[0].length - 1)) + 0);
           gridCopy[k][j].alive = true;
 
           for (let l = 0; l < grid[i].length; l++) {
-            let k = Math.floor((Math.random() * (grid.length - 1)) + 1);
-            let j = Math.floor((Math.random() * (grid[0].length - 1)) + 1);
+            let k = Math.floor((Math.random() * (grid.length - 1)) + 0);
+            let j = Math.floor((Math.random() * (grid[0].length - 1)) + 0);
             gridCopy[k][j].alive = true;
           }
         }
@@ -94,12 +173,12 @@ const clearGrid = (setGrid) => {
   let arr = new Array(25);
       
   for(let i = 0; i < arr.length; i++) {
-    arr[i] = new Array(55)
+    arr[i] = new Array(75)
   }
 
   for (let i = 0; i < arr.length; i++) {
     for (let j = 0; j < arr[i].length; j++) {
-      arr[i][j] = {alive: false, coor: [i,j]}
+      arr[i][j] = {alive: false, coor: [i,j], age: 1}
     }
   }
   setGrid(arr)
@@ -107,7 +186,7 @@ const clearGrid = (setGrid) => {
 }
 
 export const countNeighbors = (grid, buffer, coordinates, i, j, state) => {
-console.log('NEIGHBORS')
+
     let count_neighbors = 0;
 
     // check the top cell
@@ -202,12 +281,15 @@ console.log('NEIGHBORS')
     if (state === true) {
       if (count_neighbors < 2 || count_neighbors > 3) {
         buffer[i][j].alive = false;
+        buffer[i][j].age = 0;
 
-      } 
+      } else {
+        buffer[i][j].age += 1;
+      }
     } else if (state === false) {
       if (count_neighbors === 3) {
         buffer[i][j].alive = true;
-
+        buffer[i][j].age += 1;
       } 
     }
   }
