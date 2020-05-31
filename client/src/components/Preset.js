@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Preset = ( { preset, setSelectedPreset, selectedPreset, setGrid, setGeneration }) => {
+const Preset = ( { preset, setSelectedPreset, selectedPreset, setGrid, setGeneration, selectedPresetRef }) => {
 
   const setSelected = () => {
     setSelectedPreset(preset.name);
+    selectedPresetRef.current = preset.name;
     setGeneration(0);
     preset.func(setGrid);
   }

@@ -10,6 +10,9 @@ const Main = () => {
   const [grid, setGrid] = useState([]);
 
   const [selectedPreset, setSelectedPreset] = useState('');
+  const selectedPresetRef = useRef(selectedPreset);
+  selectedPresetRef.current = selectedPreset;
+
   const presets = [{name: 'Spaceships', func: preset1}, 
                    {name: 'Oscillators', func: preset2},
                    {name: 'Glider Gun', func: preset3},
@@ -44,7 +47,9 @@ const Main = () => {
   }, [reload])
 
 
-  const startSimulation = useCallback(() => {
+  const startSimulation = useCallback((selectedPreset) => {
+
+    console.log('HERE', selectedPresetRef.current)
 
     if (!simulateRef.current) {
       return 
@@ -52,13 +57,19 @@ const Main = () => {
 
     setGeneration((num) => num + 1)
 
+
     setGrid(grid => {
       return produce(grid, gridCopy => {
 
-        // make cells wrap around the grid
+        // make cells wrap around the grid 
+        // if it's glider gun pattern don't wrap cells so that it runs infinitely
         const coordinates = {};
-        wrapCellsAround(grid, coordinates);
-
+        let gliderGun = false;
+        if (selectedPresetRef.current === 'Glider Gun') {
+          gliderGun = true;
+        }
+        wrapCellsAround(grid, coordinates, gliderGun);
+        
 
         for (let i = 0; i < grid.length; i++) {
 
@@ -122,7 +133,7 @@ const Main = () => {
           <button onClick={() => {
                     setSimulate(!simulate);
                     simulateRef.current = true;
-                    startSimulation();
+                    startSimulation(selectedPreset);
                     }}
                   disabled={simulate ? true : false} style={{border: '1px solid #CC00FF'}}>Play</button>
           <button onClick={pauseSimulation}>Pause</button>
@@ -136,6 +147,7 @@ const Main = () => {
                             selectedPreset={selectedPreset}
                             setGrid={setGrid}
                             setGeneration={setGeneration}
+                            selectedPresetRef={selectedPresetRef}
                             />
           })}
         </div>

@@ -12,7 +12,7 @@ const Cell = ( { cell, setGrid }) => {
         })
       })
 
-    }} style={{border: '1px solid gray', borderRadius: '43%', height: '15px', width: '100%', 
+    }} style={{border: '1px solid gray',  borderRadius: '43%', height: '15px', width: '100%', 
                  backgroundColor: 
                  `${cell.alive && cell.age < 10 ? '#afacac' : 
                     cell.alive && cell.age < 30 ? '#FFFF00' : 
