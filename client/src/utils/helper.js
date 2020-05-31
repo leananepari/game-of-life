@@ -90,56 +90,57 @@ export const preset2 = (setGrid) => {
 }
 
 export const preset3 = (setGrid) => {
+
   clearGrid(setGrid);
 
   setGrid(grid => {
 
     return produce(grid, gridCopy => {
 
-      gridCopy[Math.floor(grid.length / 2)][5]['alive'] = true
-      gridCopy[Math.floor(grid.length / 2)][6]['alive'] = true
-      gridCopy[Math.floor(grid.length / 2) + 1][5]['alive'] = true
-      gridCopy[Math.floor(grid.length / 2) + 1][6]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5][5]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5][6]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5 + 1][5]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5 + 1][6]['alive'] = true
 
-      gridCopy[Math.floor(grid.length / 2)][6 + 9]['alive'] = true
-      gridCopy[Math.floor(grid.length / 2) + 1][6 + 9]['alive'] = true
-      gridCopy[Math.floor(grid.length / 2) + 2][6 + 9]['alive'] = true
-      gridCopy[Math.floor(grid.length / 2) + 3][6 + 9 + 1]['alive'] = true
-      gridCopy[Math.floor(grid.length / 2) + 4][6 + 9 + 2]['alive'] = true
-      gridCopy[Math.floor(grid.length / 2) + 4][6 + 9 + 3]['alive'] = true
-      gridCopy[Math.floor(grid.length / 2) + 3][6 + 9 + 5]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5][6 + 9]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5 + 1][6 + 9]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5+ 2][6 + 9]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5+ 3][6 + 9 + 1]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5 + 4][6 + 9 + 2]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5 + 4][6 + 9 + 3]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) -5 + 3][6 + 9 + 5]['alive'] = true
       
-      gridCopy[Math.floor(grid.length / 2) + 2][6 + 9 + 6]['alive'] = true
-      gridCopy[Math.floor(grid.length / 2) + 1][6 + 9 + 6]['alive'] = true
-      gridCopy[Math.floor(grid.length / 2)][6 + 9 + 6]['alive'] = true
-      gridCopy[Math.floor(grid.length / 2) + 1][6 + 9 + 4]['alive'] = true
-      gridCopy[Math.floor(grid.length / 2) + 1][6 + 9 + 7]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5 + 2][6 + 9 + 6]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5 + 1][6 + 9 + 6]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5][6 + 9 + 6]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5 + 1][6 + 9 + 4]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5 + 1][6 + 9 + 7]['alive'] = true
 
-      gridCopy[Math.floor(grid.length / 2) - 1][6 + 10]['alive'] = true
-      gridCopy[Math.floor(grid.length / 2) - 2][6 + 11]['alive'] = true
-      gridCopy[Math.floor(grid.length / 2) - 2][6 + 12]['alive'] = true
-      gridCopy[Math.floor(grid.length / 2) - 1][6 + 14]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5 - 1][6 + 10]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5 - 2][6 + 11]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5 - 2][6 + 12]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) -5 - 1][6 + 14]['alive'] = true
 
-      gridCopy[Math.floor(grid.length / 2) - 2][6 + 19]['alive'] = true
-      gridCopy[Math.floor(grid.length / 2) - 2][6 + 20]['alive'] = true
-      gridCopy[Math.floor(grid.length / 2) - 2 + 1][6 + 19]['alive'] = true
-      gridCopy[Math.floor(grid.length / 2) - 2 + 1][6 + 20]['alive'] = true
-      gridCopy[Math.floor(grid.length / 2) - 2 + 2][6 + 19]['alive'] = true
-      gridCopy[Math.floor(grid.length / 2) - 2 + 2][6 + 20]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5 - 2][6 + 19]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5 - 2][6 + 20]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5 - 2 + 1][6 + 19]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5 - 2 + 1][6 + 20]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5- 2 + 2][6 + 19]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5 - 2 + 2][6 + 20]['alive'] = true
 
-      gridCopy[Math.floor(grid.length / 2) - 3][6 + 21]['alive'] = true
-      gridCopy[Math.floor(grid.length / 2) - 2 + 3][6 + 21]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5 - 3][6 + 21]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5 - 2 + 3][6 + 21]['alive'] = true
 
-      gridCopy[Math.floor(grid.length / 2) - 3][6 + 23]['alive'] = true
-      gridCopy[Math.floor(grid.length / 2) - 4][6 + 23]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5 - 3][6 + 23]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5 - 4][6 + 23]['alive'] = true
 
-      gridCopy[Math.floor(grid.length / 2) - 2 + 3][6 + 23]['alive'] = true
-      gridCopy[Math.floor(grid.length / 2) - 2 + 4][6 + 23]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5 - 2 + 3][6 + 23]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5 - 2 + 4][6 + 23]['alive'] = true
 
-      gridCopy[Math.floor(grid.length / 2) - 2][6 + 33]['alive'] = true
-      gridCopy[Math.floor(grid.length / 2) - 2][6 + 34]['alive'] = true
-      gridCopy[Math.floor(grid.length / 2) - 2 + 1][6 + 33]['alive'] = true
-      gridCopy[Math.floor(grid.length / 2) - 2 + 1][6 + 34]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5 - 2][6 + 33]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5 - 2][6 + 34]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5 - 2 + 1][6 + 33]['alive'] = true
+      gridCopy[Math.floor(grid.length / 2) - 5 - 2 + 1][6 + 34]['alive'] = true
 
     })
   })
@@ -191,8 +192,10 @@ export const countNeighbors = (grid, buffer, coordinates, i, j, state) => {
 
     // check the top cell
     if (coordinates.hasOwnProperty(`${i-1},${j}`)) {
-      if (coordinates[`${i-1},${j}`].alive === true) {
-        count_neighbors ++;
+      if (coordinates[`${i-1},${j}`] !== null) {
+        if (coordinates[`${i-1},${j}`].alive === true) {
+          count_neighbors ++;
+        }
       }
     } else {
       if (grid[i-1][j].alive === true) {
@@ -202,8 +205,10 @@ export const countNeighbors = (grid, buffer, coordinates, i, j, state) => {
 
     // check top right corner cell
     if (coordinates.hasOwnProperty(`${i-1},${j+1}`)) {
-      if (coordinates[`${i-1},${j+1}`].alive === true) {
-        count_neighbors ++;
+      if (coordinates[`${i-1},${j+1}`] !== null) {
+        if (coordinates[`${i-1},${j+1}`].alive === true) {
+          count_neighbors ++;
+        }
       }
     } else {
       if (grid[i-1][j+1].alive === true) {
@@ -213,8 +218,10 @@ export const countNeighbors = (grid, buffer, coordinates, i, j, state) => {
 
     //check cell to the right
     if (coordinates.hasOwnProperty(`${i},${j+1}`)) {
-      if (coordinates[`${i},${j+1}`].alive === true) {
-        count_neighbors ++;
+      if (coordinates[`${i},${j+1}`] !== null) {
+        if (coordinates[`${i},${j+1}`].alive === true) {
+          count_neighbors ++;
+        }
       }
     } else {
       if (grid[i][j+1].alive === true) {
@@ -224,8 +231,10 @@ export const countNeighbors = (grid, buffer, coordinates, i, j, state) => {
 
     //check bottom right corner cell
     if (coordinates.hasOwnProperty(`${i+1},${j+1}`)) {
-      if (coordinates[`${i+1},${j+1}`].alive === true) {
-        count_neighbors ++;
+      if (coordinates[`${i+1},${j+1}`] !== null) {
+        if (coordinates[`${i+1},${j+1}`].alive === true) {
+          count_neighbors ++;
+        }
       } 
     } else {
       if (grid[i+1][j+1].alive === true) {
@@ -235,8 +244,10 @@ export const countNeighbors = (grid, buffer, coordinates, i, j, state) => {
 
     //check bottom cell
     if (coordinates.hasOwnProperty(`${i+1},${j}`)) {
-      if (coordinates[`${i+1},${j}`].alive === true) {
-        count_neighbors ++;
+      if (coordinates[`${i+1},${j}`] !== null) {
+        if (coordinates[`${i+1},${j}`].alive === true) {
+          count_neighbors ++;
+        }
       }
     } else {
       if (grid[i+1][j].alive === true) {
@@ -246,8 +257,10 @@ export const countNeighbors = (grid, buffer, coordinates, i, j, state) => {
 
     // check bottom left corner cell
     if (coordinates.hasOwnProperty(`${i+1},${j-1}`)) {
-      if (coordinates[`${i+1},${j-1}`].alive === true) {
-        count_neighbors ++;
+      if (coordinates[`${i+1},${j-1}`] !== null) {
+        if (coordinates[`${i+1},${j-1}`].alive === true) {
+          count_neighbors ++;
+        }
       }
     } else {
       if (grid[i+1][j-1].alive === true) {
@@ -257,8 +270,10 @@ export const countNeighbors = (grid, buffer, coordinates, i, j, state) => {
 
     // check cell to the left
     if (coordinates.hasOwnProperty(`${i},${j-1}`)) {
-      if (coordinates[`${i},${j-1}`].alive === true) {
-        count_neighbors ++;
+      if (coordinates[`${i},${j-1}`] !== null) {
+        if (coordinates[`${i},${j-1}`].alive === true) {
+          count_neighbors ++;
+        }
       }
     } else {
       if (grid[i][j-1].alive === true) {
@@ -268,8 +283,10 @@ export const countNeighbors = (grid, buffer, coordinates, i, j, state) => {
 
     //check top left corner
     if (coordinates.hasOwnProperty(`${i-1},${j-1}`)) {
-      if (coordinates[`${i-1},${j-1}`].alive === true) {
-        count_neighbors ++;
+      if (coordinates[`${i-1},${j-1}`] !== null) {
+        if (coordinates[`${i-1},${j-1}`].alive === true) {
+          count_neighbors ++;
+        }
       }
     } else {
       if (grid[i-1][j-1].alive === true) {
@@ -295,17 +312,26 @@ export const countNeighbors = (grid, buffer, coordinates, i, j, state) => {
   }
 
 
-export const wrapCellsAround = (grid, coordinates) => {
+export const wrapCellsAround = (grid, coordinates, gliderGun) => {
 
   const build_top_row = () => {
     let index = 0;
 
     //add corner cells
-    coordinates['-1,-1'] = grid[grid.length - 1][grid[0].length - 1];
-    coordinates[`-1,${grid[0].length}`] = grid[grid.length - 1][0];
+    if (!gliderGun) {
+      coordinates['-1,-1'] = grid[grid.length - 1][grid[0].length - 1];
+      coordinates[`-1,${grid[0].length}`] = grid[grid.length - 1][0];
+    } else {
+      coordinates['-1,-1'] = null;
+      coordinates[`-1,${grid[0].length}`] = null;
+    }
 
     while(index < grid[0].length) {
-      coordinates[`-1,${index}`] = grid[grid.length - 1][index];
+      if (!gliderGun) {
+        coordinates[`-1,${index}`] = grid[grid.length - 1][index];
+      } else {
+        coordinates[`-1,${index}`] = null;
+      }
       index ++;
     }
   }
@@ -314,11 +340,20 @@ export const wrapCellsAround = (grid, coordinates) => {
     let index = 0;
 
     //add corner cells
-    coordinates[`${grid.length},-1`] = grid[0][grid.length-1];
-    coordinates[`${grid.length},${grid[0].length}`] = grid[0][0];
+    if (!gliderGun) {
+      coordinates[`${grid.length},-1`] = grid[0][grid.length-1];
+      coordinates[`${grid.length},${grid[0].length}`] = grid[0][0];
+    } else {
+      coordinates[`${grid.length},-1`] = null;
+      coordinates[`${grid.length},${grid[0].length}`] = null;
+    }
 
     while(index < grid[0].length) {
-      coordinates[`${grid.length},${index}`] = grid[0][index];
+      if (!gliderGun) {
+        coordinates[`${grid.length},${index}`] = grid[0][index];
+      } else {
+        coordinates[`${grid.length},${index}`] = null;
+      }
       index ++;
     }
 
@@ -328,7 +363,11 @@ export const wrapCellsAround = (grid, coordinates) => {
     let index = 0;
 
     while(index < grid.length) {
-      coordinates[`${index},-1`] = grid[index][grid[0].length - 1];
+      if (!gliderGun) {
+        coordinates[`${index},-1`] = grid[index][grid[0].length - 1];
+      } else {
+        coordinates[`${index},-1`] = null;
+      }
       index ++;
     }
 
@@ -338,7 +377,11 @@ export const wrapCellsAround = (grid, coordinates) => {
     let index = 0;
 
     while(index < grid.length) {
-      coordinates[`${index},${grid[0].length}`] = grid[index][0];
+      if (!gliderGun) {
+        coordinates[`${index},${grid[0].length}`] = grid[index][0];
+      } else {
+        coordinates[`${index},${grid[0].length}`] = null;
+      }
       index ++;
     }
   }
